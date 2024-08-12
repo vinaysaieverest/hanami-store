@@ -194,3 +194,47 @@
   font-weight: bolder;
   
 }
+.wishListButton{
+  background: none;
+  border: none;
+  font-size:3vh;
+ 
+}
+.wishListButton:hover{
+  cursor: pointer;
+}
+.cardDetails{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.heartImage{
+  width: 30px;
+  height: 30px;
+
+}
+.button_add_to_cart{
+  background-color: '#013401';
+  color :'white';
+  width: 120px;
+  height: 40px;
+  
+}
+.ourProducts{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 50px;
+  font-family: "Dancing Script", cursive;
+}
+.ourProductsCard{
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20vh;
+  gap: 5vh;
+  flex-wrap: wrap;
+  
+}

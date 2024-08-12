@@ -6,9 +6,9 @@ export const data = [
     price: "2220",
     rating: "4.6",
     Bname: "Add to cart",
-    discount:"40% Discount",
-    isavailable:true,
-    isnew:true
+    discount: "40% Discount",
+    isavailable: true,
+    isnew: true,
   },
   {
     image: "https://5.imimg.com/data5/VD/LA/MY-3747740/men-ties.jpg",
@@ -16,10 +16,9 @@ export const data = [
     price: "4000",
     rating: "4.9",
     Bname: "Add to cart",
-    discount:"30% Discount",
-    isavailable:true,
-    isnew:false
-    
+    discount: "30% Discount",
+    isavailable: true,
+    isnew: false,
   },
   {
     image:
@@ -28,9 +27,9 @@ export const data = [
     price: "2300",
     rating: "4.0",
     Bname: "Add to cart",
-    discount:"23% Discount",
-    isavailable:false,
-    isnew:false
+    discount: "23% Discount",
+    isavailable: false,
+    isnew: false,
   },
   {
     image:
@@ -39,9 +38,9 @@ export const data = [
     price: "750",
     rating: "4.2",
     Bname: "Add to cart",
-    discount:"40% Discount",
-    isavailable:false,
-    isnew:false
+    discount: "40% Discount",
+    isavailable: false,
+    isnew: false,
   },
   {
     image:
@@ -50,9 +49,9 @@ export const data = [
     price: "2000",
     rating: "3.1",
     Bname: "Add to cart",
-    discount:"66% Discount",
-    isavailable:true,
-    isnew:false
+    discount: "66% Discount",
+    isavailable: true,
+    isnew: false,
   },
   {
     image: "https://img.faballey.com/images/Product/ITN05385Z/d3.jpg",
@@ -60,9 +59,9 @@ export const data = [
     price: "1800",
     rating: "4.7",
     Bname: "Add to cart",
-    discount:"30% Discount",
-    isavailable:false,
-    isnew:false
+    discount: "30% Discount",
+    isavailable: false,
+    isnew: false,
   },
   {
     image:
@@ -71,10 +70,10 @@ export const data = [
     price: "1200",
     rating: "5",
     Bname: "Add to cart",
-    discount:"34% Discount + additional 15% Discount",
+    discount: "34% Discount + additional 15% Discount",
 
-    isavailable:false,
-    isnew:true
+    isavailable: false,
+    isnew: true,
   },
   {
     image:
@@ -83,9 +82,9 @@ export const data = [
     price: "1000",
     rating: "3.2",
     Bname: "Add to cart",
-    discount:"50% Discount",
-    isavailable:true,
-    isnew:true
+    discount: "50% Discount",
+    isavailable: true,
+    isnew: true,
   },
 ];
 export const S_data = [
@@ -112,4 +111,128 @@ export const S_data = [
       "https://blackberrys.com/cdn/shop/files/regular-sneakers-in-off-white-osmando-blackberrys-clothing-1.jpg?v=1685949307",
     name: "Sneakers",
   },
+];
+
+export const productData = [
+  {
+    image: "https://img.freepik.com/free-photo/high-fashion-look-young-stylish-confident-happy-handsome-businessman-model-suit-cloth-lifestyle-street-sunglasses-look-his-watch_158538-2045.jpg?ga=GA1.1.299137283.1710930088&semt=ais_hybrid",
+    name: "Mens Blue suit",
+    price: "3000",
+    rating: "4.2",
+    Bname: "Add to cart",
+    discount: "30% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+  {
+    image: "https://img.freepik.com/free-photo/young-woman-with-shopping-bags-beautiful-dress_1303-17550.jpg?ga=GA1.2.299137283.1710930088&semt=ais_hybrid",
+    name: "Women Yellow dress",
+    price: "400",
+    rating: "5",
+    Bname: "Add to cart",
+    discount: "30% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+  {
+    image: "https://img.freepik.com/free-photo/handsome-young-man-standing-isolated-grey_171337-10382.jpg?ga=GA1.1.299137283.1710930088&semt=ais_hybrid",
+    name: "Men green shirt",
+    price: "350",
+    rating: "4.0",
+    Bname: "Add to cart",
+    discount: "20% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+  {
+    image: "https://img.freepik.com/free-photo/jocund-woman-summer-skirt-posing-with-kissing-face-expression-indoor-portrait-relaxed-elegant-ginger-lady-enjoying-leisure-time-studio_197531-11083.jpg?ga=GA1.2.299137283.1710930088&semt=ais_hybrid",
+    name: "Women Yellow Top",
+    price: "350",
+    rating: "3.9",
+    Bname: "Add to cart",
+    discount: "30% Discount",
+    isavailable: false,
+    isnew: true,
+  },
+  {
+    image: "https://img.freepik.com/free-photo/young-handsome-hipster-man-standing_285396-1515.jpg?ga=GA1.1.299137283.1710930088&semt=ais_hybrid",
+    name: "Men Blue shirt",
+    price: "650",
+    rating: "4.9",
+    Bname: "Add to cart",
+    discount: "33% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+  {
+    image: "https://img.freepik.com/free-photo/stylish-woman-summer-fashion-trend-dress-posing-red_285396-799.jpg?ga=GA1.2.299137283.1710930088&semt=ais_hybrid",
+    name: "Women white Top",
+    price: "750",
+    rating: "3.9",
+    Bname: "Add to cart",
+    discount: "40% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+  {
+    image: "data:image/jpeg;base64,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",
+    name: "Men Lite Pink Shirt",
+    price: "800",
+    rating: "4.2",
+    Bname: "Add to cart",
+    discount: "60% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+  {
+    image: "https://img.freepik.com/free-photo/young-woman-beautiful-red-dress_1303-17506.jpg?ga=GA1.2.299137283.1710930088&semt=ais_hybrid",
+    name: "Women red dotted dress",
+    price: "700",
+    rating: "4.5",
+    Bname: "Add to cart",
+    discount: "30% Discount",
+    isavailable: true,
+    isnew: true,
+  },
+  {
+    image: "https://m.media-amazon.com/images/I/81eyEHAfyAL._AC_UF894,1000_QL80_.jpg",
+    name: "Children new dress combo",
+    price: "800",
+    rating: "3.9",
+    Bname: "Add to cart",
+    discount: "10% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+ 
+  {
+    image: "https://img.freepik.com/free-photo/high-fashion-look-young-stylish-confident-happy-handsome-businessman-model-man-blue-suit-cloth-lifestyle-street_158538-9186.jpg?ga=GA1.1.299137283.1710930088&semt=ais_hybrid",
+    name: "Mens white pants",
+    price: "1330",
+    rating: "4.6",
+    Bname: "Add to cart",
+    discount: "30% Discount",
+    isavailable: true,
+    isnew: true,
+  },
+  {
+    image: "https://img.freepik.com/free-photo/elegant-young-handsome-man_1301-5870.jpg?ga=GA1.1.299137283.1710930088&semt=ais_hybrid",
+    name: "Mens checks shirt",
+    price: "900",
+    rating: "3.3",
+    Bname: "Add to cart",
+    discount: "30% Discount",
+    isavailable: true,
+    isnew: false,
+  },
+  {
+    image: "https://img.freepik.com/premium-photo/women-beautiful-fashion-dresses_953724-3570.jpg?ga=GA1.2.299137283.1710930088&semt=ais_hybrid",
+    name: "Women lite orange dress",
+    price: "1200",
+    rating: "5",
+    Bname: "Add to cart",
+    discount: "30% Discount",
+    isavailable: false,
+    isnew: true,
+  }
 ];

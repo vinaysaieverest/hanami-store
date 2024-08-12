@@ -20,3 +20,16 @@ export type Stypecard = {
   image: string;
   name: string;
 };
+
+export type PtypeCrad = {
+  image: string;
+  name: string;
+  price: string;
+  rating: string;
+  Bname: string;
+  discount:string;
+  isavailable:boolean;
+  isnew:boolean;
+  updateCart:Function;
+
+}

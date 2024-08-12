@@ -4,6 +4,7 @@ import "./App.css";
 import { Button } from "./buttons";
 import { Card } from "./card";
 import { data } from "./data";
+import {productData} from './data'
 import { Select_card } from "./card";
 import { S_data } from "./data";
 import Heart from "react-animated-heart";
@@ -47,12 +48,36 @@ function App() {
             discount={ele.discount}
             isavailable={ele.isavailable}
             updateCart  = {updateCart}
-            // isDisabled = {isDisabled}
             
 
 
           />
         ))}
+      </div>
+      <div className="ourProducts">
+
+        <p>
+          Our Products
+        </p>
+      </div>
+      <div className="ourProductsCard">
+      {productData.map((ele) => (
+          <Card
+            image={ele.image}
+            name={ele.name}
+            price={ele.price}
+            rating={ele.rating}
+            Bname={ele.Bname}
+            isnew={ele.isnew}
+            discount={ele.discount}
+            isavailable={ele.isavailable}
+            updateCart  = {updateCart}
+
+            
+
+
+          />
+      ))}
       </div>
       </div>
     </div>
