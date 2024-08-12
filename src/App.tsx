@@ -16,12 +16,11 @@ import { FaRegHeart } from "react-icons/fa";
 
 function App() {
   const [noOfCartItem,setNoOfCartItem] = useState(0);
-  // const [isDisabled, setIsDisabled] = useState(false);
+  
   const updateCart = ()=>{
 
     setNoOfCartItem(noOfCartItem+1)
     toast.success("Item added!")
-    // setIsDisabled(true)
   }
   const [search,setSearch]=useState("")
  
