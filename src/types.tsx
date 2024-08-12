@@ -11,9 +11,10 @@ export type Ttypecard = {
 };
 export type Htype = {
   logo: string;
-  search: string;
+  // search: string;
   login: string;
-  noOfCartItem:number
+  noOfCartItem:number;
+  setSearch:Function
   
 };
 export type Stypecard = {

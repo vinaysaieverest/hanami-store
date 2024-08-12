@@ -23,12 +23,15 @@ function App() {
     toast.success("Item added!")
     // setIsDisabled(true)
   }
+  const [search,setSearch]=useState("")
+ 
 
   
   return (
     <div className="parent">
       <div className="navbar">
-        <Button logo={"HANAMI"} search={"Enter something"} login={"Login"} noOfCartItem={noOfCartItem}/>
+        <Button logo={"HANAMI"}  login={"Login"} noOfCartItem={noOfCartItem} setSearch={setSearch}/>
+      
       </div>
       <div>
       <div className="content">
@@ -37,7 +40,7 @@ function App() {
       </div>
       <ToastContainer />
       <div className="con">
-        {data.map((ele) => (
+        {data.filter((ele)=>ele.name.toLocaleLowerCase().includes(search)).map((ele) => (
           <Card
             image={ele.image}
             name={ele.name}
@@ -61,7 +64,7 @@ function App() {
         </p>
       </div>
       <div className="ourProductsCard">
-      {productData.map((ele) => (
+      {productData.filter((ele)=>ele.name.toLocaleLowerCase().includes(search)).map((ele) => (
           <Card
             image={ele.image}
             name={ele.name}
