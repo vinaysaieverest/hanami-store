@@ -13,6 +13,7 @@ export type Ttypecard = {
   isAddedToWishlist:boolean;
   updateCart:Function;
   handleAddToCart:Function;
+  handleAddToWishList:Function
 };
 export type Ttypecard1 = {
   image: string;
@@ -53,5 +54,6 @@ export type PtypeCard = {
   isAddedToWishlist:boolean;
   updateCart:() => void;
   handleAddToCart1:Function;
+  handleAddToWishList1:Function
 
 }

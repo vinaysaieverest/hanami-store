@@ -24,6 +24,7 @@ export const Card = ({
   isAddedToWishlist,
   isAddedToCart,
   handleAddToCart,
+  handleAddToWishList
 
 }: Ttypecard) => {
   const showToastMessage = () => {
@@ -43,6 +44,7 @@ export const Card = ({
 
   const handleLikeClick = () => {
     liked();
+    handleAddToWishList(id)
   };
 
 
@@ -106,7 +108,7 @@ export const Card = ({
             <button onClick={handleLikeClick} className="wishListButton">
               <img
                 className="heartImage"
-                src={isLiked ? likedImage : unlikedImage}
+                src={isAddedToWishlist ? likedImage : unlikedImage}
 
               />
             </button>
@@ -128,6 +130,7 @@ export const Card1 = ({
   updateCart,
   isAddedToCart,
   handleAddToCart1,
+  handleAddToWishList1
 }: PtypeCard) => {
   const showToastMessage = () => {
     toast.success("We will notify soon!");
@@ -135,7 +138,7 @@ export const Card1 = ({
   const [isLiked, setisLiked] = useState(false);
 
   const liked = () => {
-    if (isLiked) {
+    if (isLiked&&handleAddToWishList1) {
       setisLiked(false);
       toast.error("Removed from Wishlist!");
     } else {
@@ -146,6 +149,7 @@ export const Card1 = ({
 
   const handleLikeClick = () => {
     liked();
+    handleAddToWishList1(id)
   };
 
   const [isAdded, setisAdded] = useState(false);
@@ -218,184 +222,6 @@ export const Select_card = ({ image, name }: Stypecard) => {
     </div>
   );
 };
-
-
-// import React, { useState } from "react";
-// import { Ttypecard ,PtypeCard} from "./types";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-// import likedImage from "./assets/heart (1).png";
-// import unlikedImage from "./assets/heart.png";
-
-// export const Card = ({
-//   id,
-//   image,
-//   name,
-//   price,
-//   rating,
-//   Bname,
-//   BUname,
-//   isavailable,
-//   isnew,
-//   updateCart,
-//   discount,
-//   isAddedToWishlist,
-//   isAddedToCart,
-//   handleAddToCart,
-// }: Ttypecard) => {
-//   const showToastMessage = () => {
-//     toast.success("We will notify soon!");
-//   };
-
-//   const [isLiked, setIsLiked] = useState(isAddedToWishlist);
-//   const [isAdded, setIsAdded] = useState(isAddedToCart);
-
-//   const handleLikeClick = () => {
-//     if (isLiked) {
-//       setIsLiked(false);
-//       toast.error("Removed from Wishlist!");
-//     } else {
-//       setIsLiked(true);
-//       toast.success("Added to Wishlist!");
-//     }
-//   };
-
-//   const handleClick1 = () => {
-//     if (!isAdded) {
-//       setIsAdded(true);
-//       handleAddToCart(id); // Update the parent state
-//       updateCart();
-//     }
-//   };
-
-//   return (
-//     <div className="mainCard">
-//       {isnew && (
-//         <div className="newArrival">
-//           <img
-//             src="/assets/img.png"
-//             alt="new arrival"
-//             className="newarrivalimg"
-//           />
-//         </div>
-//       )}
-//       <div className="card">
-//         <img src={image} className="dressImage" alt={name} />
-//         <div className="discription">
-//           <p className="nameOfProduct">{name}</p>
-//           <p className="discount1">{discount}</p>
-//           <div className="priceNrating">
-//             <p>{price}.00/- INR</p>
-//             <p>|</p>
-//             <p>{rating}★</p>
-//           </div>
-//           <div className="cardDetails">
-//             {isavailable ? (
-//               <button
-//                 onClick={handleClick1}
-//                 className="button_add_to_cart"
-//                 disabled={isAdded}
-//               >
-//                 {isAdded ? BUname : Bname}
-//               </button>
-//             ) : (
-//               <button onClick={showToastMessage} className="notify_button">
-//                 Notify Me
-//               </button>
-//             )}
-//             <button onClick={handleLikeClick} className="wishListButton">
-//               <img
-//                 className="heartImage"
-//                 src={isLiked ? likedImage : unlikedImage}
-//                 alt="like/unlike"
-//               />
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//       <ToastContainer />
-//     </div>
-//   );
-// };
-
-// export const Card1 = ({
-//   image,
-//   name,
-//   price,
-//   rating,
-//   Bname,
-//   isavailable,
-//   isnew,
-//   updateCart,
-// }: PtypeCard) => {
-//   const showToastMessage = () => {
-//     toast.success("We will notify soon!");
-//   };
-
-//   const [isLiked, setIsLiked] = useState(false);
-//   const [isAdded, setIsAdded] = useState(false);
-
-//   const handleLikeClick = () => {
-//     if (isLiked) {
-//       setIsLiked(false);
-//       toast.error("Removed from Wishlist!");
-//     } else {
-//       setIsLiked(true);
-//       toast.success("Added to Wishlist!");
-//     }
-//   };
-
-//   const handleClick1 = () => {
-//     if (!isAdded) {
-//       setIsAdded(true);
-//       updateCart();
-//     }
-//   };
-
-//   return (
-//     <div className="mainCard">
-//       {isnew && (
-//         <div className="newArrival">
-//           <img src="./assets/logo1.jpeg" alt="new arrival" className="newarrivalimg" />
-//         </div>
-//       )}
-//       <div className="card">
-//         <img src={image} className="dressImage" alt={name} />
-//         <div className="discription">
-//           <p className="nameOfProduct">{name}</p>
-//           <div className="priceNrating">
-//             <p>{price}.00/- INR</p>
-//             <p>|</p>
-//             <p>{rating}★</p>
-//           </div>
-//           <div className="cardDetails">
-//             {isavailable ? (
-//               <button
-//                 onClick={handleClick1}
-//                 className="button_add_to_cart"
-//                 disabled={isAdded}
-//               >
-//                 {isAdded ? "Added" : Bname}
-//               </button>
-//             ) : (
-//               <button onClick={showToastMessage} className="notify_button">
-//                 Notify Me
-//               </button>
-//             )}
-//             <button onClick={handleLikeClick} className="wishListButton">
-//               <img
-//                 className="heartImage"
-//                 src={isLiked ? likedImage : unlikedImage}
-//                 alt="like/unlike"
-//               />
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//       <ToastContainer />
-//     </div>
-//   );
-// };
 
 
 
