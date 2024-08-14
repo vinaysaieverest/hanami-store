@@ -1,14 +1,32 @@
 export type Ttypecard = {
+  id:number,
   image: string;
   name: string;
   price: string;
   rating: string;
   Bname: string;
+  BUname:string;
   discount:string;
   isavailable:boolean;
   isnew:boolean;
+  isAddedToCart:boolean;
+  isAddedToWishlist:boolean;
   updateCart:Function;
+  handleAddToCart:Function;
 };
+export type Ttypecard1 = {
+  image: string;
+  name: string;
+  price: string;
+  rating: string;
+  Bname: string;
+  isavailable:boolean;
+  isnew:boolean;
+  isAddedToCart:boolean;
+  isAddedToWishlist:boolean;
+  updateCart:() => void;
+};
+
 export type Htype = {
   logo: string;
   // search: string;
@@ -22,15 +40,18 @@ export type Stypecard = {
   name: string;
 };
 
-export type PtypeCrad = {
+export type PtypeCard = {
+  id:number,
   image: string;
   name: string;
   price: string;
   rating: string;
   Bname: string;
-  discount:string;
   isavailable:boolean;
   isnew:boolean;
-  updateCart:Function;
+  isAddedToCart:boolean;
+  isAddedToWishlist:boolean;
+  updateCart:() => void;
+  handleAddToCart1:Function;
 
 }

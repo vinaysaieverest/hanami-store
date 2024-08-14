@@ -1,7 +1,14 @@
-This is the Hanami Clothing Store Web page.
-To run this project please, clone it in to your local system.
-Install npm into your system and use npm start to run this project.
+## Hanami Clothing store
 
+Welcome to Hanami, an online clothing store that offers a wide selection of fashion items for all occasions. Whether you're looking for casual wear, formal attire, or the latest trends, Hanami has something for everyone. We are currently running exclusive offers on selected products, so don't miss out on the chance to refresh your wardrobe at unbeatable prices.
 
+## Installation
+
+1. Clone the repository:
+    git clone https://github.com/vinaysaieverest/React_Assignment_Task_3
+2. Install dependencies:
+    npm install
+3. Usage:
+npm start
 # UI
 ![alt text](UI-final.png)

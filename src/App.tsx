@@ -1,31 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import "./App.css";
 import { Button } from "./buttons";
-import { Card } from "./card";
+import { Card, Card1 } from "./card";
 import { data } from "./data";
 import {productData} from './data'
-import { Select_card } from "./card";
-import { S_data } from "./data";
-import Heart from "react-animated-heart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { toBeDisabled } from "@testing-library/jest-dom/matchers";
-import { FaRegHeart } from "react-icons/fa";
+import { Ttypecard } from "./types";
+
 
 
 function App() {
+  const [Data, setData] = useState(data);
   const [noOfCartItem,setNoOfCartItem] = useState(0);
   
   const updateCart = ()=>{
+    
 
     setNoOfCartItem(noOfCartItem+1)
     toast.success("Item added!")
   }
   const [search,setSearch]=useState("")
- 
 
+  const handleAddToCart = (id:number) => {
+    console.log(id)
+    setData(Data1 =>
+      Data1.map(item => item.id === id ? { ...item, isAddedToCart: true } : item
+      )
+      
+      
+    );
+    updateCart();
+  };
+
+
+
+
+
+
+
+const [PData, setPData] = useState(productData);
+const handleAddToCart1 = (id:number) => {
+console.log(id)
+setPData(Data1 =>
+  Data1.map(item => item.id === id ? { ...item, isAddedToCart: true } : item
+  )
   
+  
+);
+
+updateCart();
+};
+
   return (
     <div className="parent">
       <div className="navbar">
@@ -39,20 +66,22 @@ function App() {
       </div>
       <ToastContainer />
       <div className="con">
-        {data.filter((ele)=>ele.name.toLocaleLowerCase().includes(search)).map((ele) => (
+        {Data.filter((ele)=>ele.name.toLocaleLowerCase().includes(search)).map((ele) => (
           <Card
+            id={ele.id}
             image={ele.image}
             name={ele.name}
             price={ele.price}
             rating={ele.rating}
             Bname={ele.Bname}
+            BUname={ele.BUname}
             isnew={ele.isnew}
             discount={ele.discount}
             isavailable={ele.isavailable}
+            isAddedToCart={ele.isAddedToCart}
+            isAddedToWishlist={ele.isAddedToWishlist}
             updateCart  = {updateCart}
-            
-
-
+            handleAddToCart={handleAddToCart}
           />
         ))}
       </div>
@@ -62,18 +91,31 @@ function App() {
           Our Products
         </p>
       </div>
+
+
+
+
+
+
+
+
+
+
       <div className="ourProductsCard">
-      {productData.filter((ele)=>ele.name.toLocaleLowerCase().includes(search)).map((ele) => (
-          <Card
+      {PData.filter((ele)=>ele.name.toLocaleLowerCase().includes(search)).map((ele) => (
+          <Card1
+            id={ele.id}
             image={ele.image}
             name={ele.name}
             price={ele.price}
             rating={ele.rating}
             Bname={ele.Bname}
             isnew={ele.isnew}
-            discount={ele.discount}
             isavailable={ele.isavailable}
+            isAddedToCart={ele.isAddedToCart}
+            isAddedToWishlist={ele.isAddedToWishlist}
             updateCart  = {updateCart}
+            handleAddToCart1={handleAddToCart1}
 
             
 
