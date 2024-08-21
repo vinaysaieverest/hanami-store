@@ -1,19 +1,20 @@
 export type Ttypecard = {
+
   id:number,
   image: string;
   name: string;
   price: string;
   rating: string;
-  Bname: string;
-  BUname:string;
   discount:string;
   isavailable:boolean;
   isnew:boolean;
   isAddedToCart:boolean;
   isAddedToWishlist:boolean;
+  isInOffers:boolean;
   updateCart:Function;
   handleAddToCart:Function;
   handleAddToWishList:Function
+  handleProduct:Function
 };
 export type Ttypecard1 = {
   image: string;
@@ -47,8 +48,7 @@ export type PtypeCard = {
   name: string;
   price: string;
   rating: string;
-  Bname: string;
-  isavailable:boolean;
+   isavailable:boolean;
   isnew:boolean;
   isAddedToCart:boolean;
   isAddedToWishlist:boolean;

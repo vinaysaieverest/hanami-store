@@ -7,6 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.css";
 import likedImage from "./assets/heart (1).png";
 import unlikedImage from "./assets/heart.png";
+import { useNavigate } from "react-router-dom";
+import { data } from "./data";
+
 
 
 export const Card = ({
@@ -15,21 +18,22 @@ export const Card = ({
   name,
   price,
   rating,
-  Bname,
-  BUname,
   isavailable,
   isnew,
-  updateCart,
+  isInOffers,
   discount,
   isAddedToWishlist,
   isAddedToCart,
   handleAddToCart,
-  handleAddToWishList
+  handleAddToWishList,
+  handleProduct
 
 }: Ttypecard) => {
   const showToastMessage = () => {
     toast.success("We will notify soon!");
   };
+  const navigate = useNavigate();
+  
   const [isLiked, setisLiked] = useState(false);
 
   const liked = () => {
@@ -42,186 +46,126 @@ export const Card = ({
     }
   };
 
+  const [noOfCartItem, setNoOfCartItem] = useState(0);
+  const updateCart = () => {
+    setNoOfCartItem(noOfCartItem + 1);
+    
+  };
+
   const handleLikeClick = () => {
     liked();
     handleAddToWishList(id)
+    console.log(isAddedToWishlist)
+    console.log(isAddedToCart)
   };
-
 
   const [isAdded, setisAdded] = useState(false);
   const added = () => {
-    if (isAdded) {
-      setisAdded(false);
-      
-    } else {
-      setisAdded(true);
-      
-    }
+    if (!isAdded) {
+      setisAdded(true)
+    };
+      console.log(isAddedToCart)
+      console.log(isAdded)
   };
 
   const handleClick1 = () => {
-    if (!isAdded) {
       added()
-      handleAddToCart(id); // Update the parent state
-      
-    }
-  };
-  return (
-    <div className="mainCard">
-      {isnew && (
-        <div className="newArrival">
-          <img
-            src="/assets/img.png"
-            alt="new arrival"
-            className="newarrivalimg"
-          />
-        </div>
-      )}
-      <div className="card">
-        <img src={image} className="dressImage" />
-        <div className="discription">
-          <p className="nameOfProduct">{name}</p>
-          <p className="discount1">{discount}</p>
-          <div className="priceNrating">
-            <p>{price}.00/- INR</p>
-            <p>|</p>
-            <p>{rating}★</p>
-          </div>
-          <div className="cardDetails">
-            {isavailable ? (
-              <button
-                onClick={handleClick1}
-                className="button_add_to_cart"
-                disabled={isAddedToCart}
-                
-              >
-                {isAdded ? BUname : Bname}
-                
-                
-                
-              </button>
-            ) : (
-              <button onClick={showToastMessage} className="notify_button">
-                Notify Me
-              </button>
-            )}
-            <button onClick={handleLikeClick} className="wishListButton">
-              <img
-                className="heartImage"
-                src={isAddedToWishlist ? likedImage : unlikedImage}
-
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-export const Card1 = ({
-  id,
-  image,
-  name,
-  price,
-  rating,
-  Bname,
-  isavailable,
-  isnew,
-  updateCart,
-  isAddedToCart,
-  handleAddToCart1,
-  handleAddToWishList1
-}: PtypeCard) => {
-  const showToastMessage = () => {
-    toast.success("We will notify soon!");
-  };
-  const [isLiked, setisLiked] = useState(false);
-
-  const liked = () => {
-    if (isLiked&&handleAddToWishList1) {
-      setisLiked(false);
-      toast.error("Removed from Wishlist!");
-    } else {
-      setisLiked(true);
-      toast.success("Added to Wishlist!");
-    }
-  };
-
-  const handleLikeClick = () => {
-    liked();
-    handleAddToWishList1(id)
-  };
-
-  const [isAdded, setisAdded] = useState(false);
-  const added = () => {
-    if (isAdded) {
-      setisAdded(false);
-    } else {
-      setisAdded(true);
-    }
-  };
-  const handleClick1 = () => {
-    if (!isAdded) {
-      setisAdded(true);
+      handleAddToCart(id);
       updateCart();
-      handleAddToCart1(id)
-    }
+     
+      
+    
   };
+  const handleViewClick = () => {
+    navigate(`/products/${id}`); // Navigate to Cart page
+  };
+  
+  const addedItems=()=>{
+    navigate(`/cart`);
+  }
   return (
     <div className="mainCard">
       {isnew && (
         <div className="newArrival">
-          <img src="./assets/logo1.jpeg"  className="newarrivalimg" />
+          <img src="/assets/img.png"  className="newarrivalimg" />
         </div>
       )}
       <div className="card">
-        <img src={image} className="dressImage" />
-        <div className="discription">
-          <p className="nameOfProduct">{name}</p>
-          {/* <p className="discount1">{discount}</p> */}
-          <div className="priceNrating">
-            <p>{price}.00/- INR</p>
-            <p>|</p>
-
-            <p>{rating}★</p>
-          </div>
-          <div className="cardDetails">
-            {isavailable ? (
-              <button
-                onClick={handleClick1}
-                className="button_add_to_cart"
-                disabled={isAddedToCart}
-                
-              >
-                {isAdded ? "Added" : Bname}
-              </button>
-            ) : (
-              <button onClick={showToastMessage} className="notify_button">
-                Notify Me
-              </button>
-            )}
-            <button onClick={handleLikeClick} className="wishListButton">
-              <img
-                className="heartImage"
-                src={isLiked ? likedImage : unlikedImage}
-                alt="like/unlike"
-              />
-            </button>
-          </div>
-        </div>
+        {isInOffers ? (
+          <>
+            <img src={image} onClick={handleViewClick} className="dressImage" />
+            <div className="discription">
+              <p className="nameOfProduct">{name}</p>
+              <p className="discount1">Get flat {discount}</p>
+              <div className="priceNrating">
+                <p>{price}.00/- INR</p>
+                <p>|</p>
+                <p>{rating}★</p>
+              </div>
+              <div className="cardDetails">
+                {isavailable ? (
+                  isAddedToCart ? (
+                    <>
+                      <button className="button_add_to_cart" onClick={addedItems}>
+                        Go to Cart
+                      </button>
+                    </>
+                  ) : (
+                    <button onClick={handleClick1} className="button_add_to_cart">
+                      Add to Cart
+                    </button>
+                  )
+                ) : (
+                  <button onClick={showToastMessage} className="notify_button">
+                    Notify Me
+                  </button>
+                )}
+                <button onClick={handleLikeClick} className="wishListButton">
+                  <img className="heartImage" src={isLiked ? likedImage : unlikedImage} />
+                </button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <img src={image} onClick={handleViewClick} className="dressImage" />
+            <div className="discription">
+              <p className="nameOfProduct">{name}</p>
+              <div className="priceNrating">
+                <p>{price}.00/- INR</p>
+                <p>|</p>
+                <p>{rating}★</p>
+              </div>
+              <div className="cardDetails">
+                {isavailable ? (
+                  isAddedToCart ? (
+                    <>
+                      <button className="button_add_to_cart" onClick={addedItems}>
+                        Go to Cart
+                      </button>
+                    </>
+                  ) : (
+                    <button onClick={handleClick1} className="button_add_to_cart">
+                      Add to Cart
+                    </button>
+                  )
+                ) : (
+                  <button onClick={showToastMessage} className="notify_button">
+                    Notify Me
+                  </button>
+                )}
+                <button onClick={handleLikeClick} className="wishListButton">
+                  <img className="heartImage" src={isLiked ? likedImage : unlikedImage} />
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
-};
+}
 
-export const Select_card = ({ image, name }: Stypecard) => {
-  return (
-    <div className="s_i">
-      <img src={image} className="seletion_image" />
-      <p className="selection_name">{name}</p>
-    </div>
-  );
-};
 
 
 
