@@ -160,7 +160,7 @@ const handleRemove = (id: number) => {
         
       <div className="cart-items">
         {cartItems.length === 0 ? (
-          <p className="zero-products">Your cart feels very light! </p>
+          <p className="zero-products">Your cart feels very light!🥺 </p>
         ) : (
           cartItems.map((item: any) => (
             
