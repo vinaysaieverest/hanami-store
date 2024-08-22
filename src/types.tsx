@@ -42,19 +42,3 @@ export type Stypecard = {
   image: string;
   name: string;
 };
-
-export type PtypeCard = {
-  id:number,
-  image: string;
-  name: string;
-  price: string;
-  rating: string;
-   isavailable:boolean;
-  isnew:boolean;
-  isAddedToCart:boolean;
-  isAddedToWishlist:boolean;
-  updateCart:() => void;
-  handleAddToCart1:Function;
-  handleAddToWishList1:Function
-
-}

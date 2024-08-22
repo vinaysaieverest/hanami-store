@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
-import { data } from "../data";
 import { useNavigate, useNavigation, useParams } from "react-router-dom";
-import { Card } from "../card";
 import { dataContext } from "../Context/GlobalContext";
 import { Button } from "../buttons";
 import likedImage from "../assets/heart (1).png";

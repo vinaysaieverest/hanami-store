@@ -4,9 +4,6 @@ import "./App.css";
 import { Button } from "./buttons";
 import { Card} from "./card";
 import {Ttypecard} from './types'
-import { data } from "./data";
-
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { dataContext } from "./Context/GlobalContext";
@@ -16,7 +13,7 @@ function App() {
   // const [Data, setData] = useState(data);
   const {Data,setData} = useContext(dataContext);
   const {noOfCartItem, setNoOfCartItem} = useContext(dataContext);
-  const{isAdded,setisAdded} = useContext(dataContext)
+
 
   
 

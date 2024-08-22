@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import { Ttypecard, Ttypecard1 ,PtypeCard } from "./types";
-import { Stypecard } from "./types";
+import { Ttypecard } from "./types";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.css";
 import likedImage from "./assets/heart (1).png";
