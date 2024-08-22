@@ -9,6 +9,13 @@ Welcome to Hanami, an online clothing store that offers a wide selection of fash
 
 ## Installation
 
+## Description
+1. This Project Contains the products of Hanami Store where it has Offer Products and Non-Offer Products
+2. In this project I have implimented the Add to cart, Wish list, Search and Cart Functionalities.
+3
+
+
+
 1. Clone the repository:
     git clone https://github.com/vinaysaieverest/React_Assignment_Task_3
 
@@ -24,3 +31,9 @@ npm start
 
 # UI
 ![alt text](UI-final.png)
+
+![Single Product Cart](src/assets/Output/singleProduct.png)
+![cart after placing order](src/assets/Output/cartAfterPlacing.png)
+![Output Pop ](src/assets/Output/popUp.png)
+![cart output](src/assets/Output/cartOutput.png)
+

@@ -195,7 +195,7 @@ const handleRemove = (id: number) => {
 
       <div className="cart-summary">
         <div><h2>Cart Summary</h2></div>
-        <hr  />
+        <hr/>
         <div><p>Total Items: {noOfCartItem}</p></div>
         <p className="discount-of product">Discount:{discount()}</p>
         <div><p>Total Cost: {totalCost()}</p></div>
