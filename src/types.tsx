@@ -5,28 +5,29 @@ export type Ttypecard = {
   name: string;
   price: string;
   rating: string;
-  discount:string;
+  discount:number;
   isavailable:boolean;
   isnew:boolean;
   isAddedToCart:boolean;
-  isAddedToWishlist:boolean;
+  isAddedToWishList:boolean;
   isInOffers:boolean;
-  updateCart:Function;
-  handleAddToCart:Function;
+  updateCart?:Function;
+  handleAddToCart: Function
   handleAddToWishList:Function
-  handleProduct:Function
+  handleProduct?:Function
 };
 export type Ttypecard1 = {
+  id:number,
   image: string;
   name: string;
   price: string;
   rating: string;
-  Bname: string;
+  discount:number;
   isavailable:boolean;
   isnew:boolean;
   isAddedToCart:boolean;
-  isAddedToWishlist:boolean;
-  updateCart:() => void;
+  isAddedToWishList:boolean;
+  isInOffers:boolean;
 };
 
 export type Htype = {

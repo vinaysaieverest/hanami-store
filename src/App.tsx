@@ -17,9 +17,10 @@ function App() {
   const {Data,setData} = useContext(dataContext);
   const {noOfCartItem, setNoOfCartItem} = useContext(dataContext);
   const{isAdded,setisAdded} = useContext(dataContext)
+
   
 
-  const [search, setSearch] = useState("");
+  const {search,setSearch} = useContext(dataContext)
 
   const updateCart = () => {
     setNoOfCartItem(noOfCartItem + 1);
@@ -42,7 +43,7 @@ function App() {
     console.log(id);
     setData((Data:any) =>
       Data.map((item: { id: number; }) =>
-        item.id === id ? { ...item, isAddedToWishlist: true } : item
+        item.id === id ? { ...item, isAddedToWishList: true } : item
       )
     );
     console.log(Data);
@@ -52,10 +53,6 @@ function App() {
     ele.name.toLowerCase().includes(search.toLowerCase())
   );
 
-
-  const handleProduct = (id: number) => {
-    
-  };
 
   return (
     <>
@@ -99,12 +96,12 @@ function App() {
                     discount={ele.discount}
                     isavailable={ele.isavailable}
                     isAddedToCart={ele.isAddedToCart}
-                    isAddedToWishlist={ele.isAddedToWishlist}
+                    isAddedToWishList={ele.isAddedToWishList}
                     isInOffers={ele.isInOffers}
                     updateCart={updateCart}
                     handleAddToCart={handleAddToCart}
                     handleAddToWishList={handleAddToWishList}
-                    handleProduct={handleProduct}
+                    
                   />
                 ))}
               </div>

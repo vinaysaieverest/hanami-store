@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Htype } from "./types";
 import { useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
-export const Button = ({ logo, login ,noOfCartItem ,setSearch}: Htype) => {
+import { dataContext } from "./Context/GlobalContext";
+export const Button = ({ logo, login ,noOfCartItem }: Htype) => {
+  const {search,setSearch} = useContext(dataContext)
   const navigate = useNavigate();
   const addedItems=()=>{
     navigate(`/cart`);

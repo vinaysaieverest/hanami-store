@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Ttypecard, Ttypecard1 ,PtypeCard } from "./types";
 import { Stypecard } from "./types";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import likedImage from "./assets/heart (1).png";
 import unlikedImage from "./assets/heart.png";
 import { useNavigate } from "react-router-dom";
-import { data } from "./data";
+
 
 
 
@@ -22,20 +22,22 @@ export const Card = ({
   isnew,
   isInOffers,
   discount,
-  isAddedToWishlist,
+  isAddedToWishList,
   isAddedToCart,
   handleAddToCart,
   handleAddToWishList,
-  handleProduct
 
 }: Ttypecard) => {
+  
+  const [notify, setNotify] = useState(false)
   const showToastMessage = () => {
     toast.success("We will notify soon!");
+    setNotify(true)
+    
   };
   const navigate = useNavigate();
   
   const [isLiked, setisLiked] = useState(false);
-
   const liked = () => {
     if (isLiked) {
       setisLiked(false);
@@ -55,8 +57,7 @@ export const Card = ({
   const handleLikeClick = () => {
     liked();
     handleAddToWishList(id)
-    console.log(isAddedToWishlist)
-    console.log(isAddedToCart)
+    
   };
 
   const [isAdded, setisAdded] = useState(false);
@@ -87,7 +88,7 @@ export const Card = ({
     <div className="mainCard">
       {isnew && (
         <div className="newArrival">
-          <img src="/assets/img.png"  className="newarrivalimg" />
+          <img src="https://png.pngtree.com/png-vector/20221106/ourmid/pngtree-new-product-banner-poster-pointer-png-image_6425858.png"  className="newarrivalimg" />
         </div>
       )}
       <div className="card">
@@ -96,7 +97,7 @@ export const Card = ({
             <img src={image} onClick={handleViewClick} className="dressImage" />
             <div className="discription">
               <p className="nameOfProduct">{name}</p>
-              <p className="discount1">Get flat {discount}</p>
+              <p className="discount1">Get flat {discount}%</p>
               <div className="priceNrating">
                 <p>{price}.00/- INR</p>
                 <p>|</p>
@@ -115,13 +116,16 @@ export const Card = ({
                       Add to Cart
                     </button>
                   )
-                ) : (
+                ) : notify?( <button onClick={showToastMessage} className="notify_button" disabled={true}>
+                  Notify Me
+                </button>):( 
                   <button onClick={showToastMessage} className="notify_button">
-                    Notify Me
-                  </button>
+                  Notify Me
+                </button>
+              
                 )}
                 <button onClick={handleLikeClick} className="wishListButton">
-                  <img className="heartImage" src={isLiked ? likedImage : unlikedImage} />
+                  <img className="heartImage" src={isAddedToWishList ? likedImage : unlikedImage} />
                 </button>
               </div>
             </div>
@@ -155,7 +159,7 @@ export const Card = ({
                   </button>
                 )}
                 <button onClick={handleLikeClick} className="wishListButton">
-                  <img className="heartImage" src={isLiked ? likedImage : unlikedImage} />
+                <img className="heartImage" src={isAddedToWishList ? likedImage : unlikedImage} />
                 </button>
               </div>
             </div>
@@ -165,7 +169,3 @@ export const Card = ({
     </div>
   );
 }
-
-
-
-
