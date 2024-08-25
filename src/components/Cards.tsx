@@ -1,11 +1,11 @@
-import { Ttypecard } from "./types";
-import { useState } from "react";
+import { Ttypecard } from "../types";
+import { useContext, useState } from "react";
 import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.css";
-import likedImage from "./assets/heart (1).png";
-import unlikedImage from "./assets/heart.png";
 import { useNavigate } from "react-router-dom";
+import { dataContext } from "../Context/GlobalContext";
+
 
 
 
@@ -21,8 +21,8 @@ export const Card = ({
   isInOffers,
   discount,
   isAddedToWishList,
-  isAddedToCart,
-  handleAddToCart,
+  isAddedToCartFromHome,
+  // handleAddToCart,
   handleAddToWishList,
 
 }: Ttypecard) => {
@@ -34,8 +34,13 @@ export const Card = ({
     
   };
   const navigate = useNavigate();
+  const {Data,setData} = useContext(dataContext)
+  const {noOfCartItem, setNoOfCartItem} = useContext(dataContext);
   
-  const [isLiked, setisLiked] = useState(false);
+
+  
+  
+  const [isLiked,setisLiked] = useState(false)
   const liked = () => {
     if (isLiked) {
       setisLiked(false);
@@ -45,10 +50,17 @@ export const Card = ({
       toast.success("Added to Wishlist!");
     }
   };
-
-  const [noOfCartItem, setNoOfCartItem] = useState(0);
   const updateCart = () => {
     setNoOfCartItem(noOfCartItem + 1);
+  };
+
+  const handleAddToCartHome = (id: number) => {
+    console.log(id);
+    setData((Data1: any[]) =>
+      Data1.map((item) =>
+        item.id === id ? { ...item, isAddedToCartFromHome: true } : item
+      )
+    );
     
   };
 
@@ -58,19 +70,18 @@ export const Card = ({
     
   };
 
-  const [isAdded, setisAdded] = useState(false);
+  const [isAddedToCartHome,setIsAddedToCartHome] = useState(false)
   const added = () => {
-    if (!isAdded) {
-      setisAdded(true)
+    if (!isAddedToCartHome) {
+      setIsAddedToCartHome(true)
     };
-      console.log(isAddedToCart)
-      console.log(isAdded)
+      
   };
 
   const handleClick1 = () => {
       added()
-      handleAddToCart(id);
-      updateCart();
+      handleAddToCartHome(id);
+      updateCart()
      
       
     
@@ -92,7 +103,7 @@ export const Card = ({
       <div className="card">
         {isInOffers ? (
           <>
-            <img src={image} onClick={handleViewClick} className="dressImage" />
+            <img src={image} onClick={handleViewClick} className={`dressImage ${!isavailable && "disabled"}`} />
             <div className="discription">
               <p className="nameOfProduct">{name}</p>
               <p className="discount1">Get flat {discount}%</p>
@@ -103,7 +114,7 @@ export const Card = ({
               </div>
               <div className="cardDetails">
                 {isavailable ? (
-                  isAddedToCart ? (
+                  isAddedToCartFromHome ? (
                     <>
                       <button className="button_add_to_cart" onClick={addedItems}>
                         Go to Cart
@@ -123,14 +134,14 @@ export const Card = ({
               
                 )}
                 <button onClick={handleLikeClick} className="wishListButton">
-                  <img className="heartImage" src={isAddedToWishList ? likedImage : unlikedImage} />
+                  <img className="heartImage" src={isAddedToWishList ? '/assets/likedImage.png' : 'assets/unLikedImage.png'} />
                 </button>
               </div>
             </div>
           </>
         ) : (
           <>
-            <img src={image} onClick={handleViewClick} className="dressImage" />
+            <img src={image} onClick={handleViewClick} className={`dressImage ${!isavailable && "disabled"}`} />
             <div className="discription">
               <p className="nameOfProduct">{name}</p>
               <div className="priceNrating">
@@ -140,7 +151,7 @@ export const Card = ({
               </div>
               <div className="cardDetails">
                 {isavailable ? (
-                  isAddedToCart ? (
+                  isAddedToCartFromHome ? (
                     <>
                       <button className="button_add_to_cart" onClick={addedItems}>
                         Go to Cart
@@ -157,7 +168,7 @@ export const Card = ({
                   </button>
                 )}
                 <button onClick={handleLikeClick} className="wishListButton">
-                <img className="heartImage" src={isAddedToWishList ? likedImage : unlikedImage} />
+                <img className="heartImage" src={isAddedToWishList ? '/assets/likedImage.png' : 'assets/unLikedImage.png'} />
                 </button>
               </div>
             </div>

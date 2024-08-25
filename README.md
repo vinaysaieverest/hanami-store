@@ -1,46 +1,59 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Welcome to Hanami Clothing Store!
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Hanami Clothing Store is a web application built with React and TypeScript, designed to provide a seamless and enjoyable shopping experience. Browse and manage a wide range of clothing items with ease!
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Search: Find products by keyword, with results displayed from both sale and regular items. If no match is found, a "Sorry not available" message is displayed.
+- Add to Cart: Click the "Add to Cart" button to add products to your cart, with the cart count updating in the navbar.
+- Wishlist: Add and remove products from your wishlist, with a heart symbol indicating saved items.
+- Stock Notification: Receive alerts when an item is out of stock, with a "Notify Me" button displayed.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Overview
 
-### `npm test`
+- Browse Items: Explore a variety of clothing items
+- Search and Filter: Easily find products with search options
+- Manage Shopping Cart: Add items to the cart and view the count
+- Wishlist Functionality: Save favorite products for future consideration
+- Stock Notifications: Receive alerts when an item is not available
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## System Requirements
 
-### `npm run build`
+- Node.js: v20 or later
+- npm: v8 or later
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository for front end file: https://github.com/vinaysaieverest/hanami-store
+2. Clone the repository for back end files : https://github.com/vinaysaieverest/hanami-backend
+3. Navigate to the project directory: `cd react-tasks`
+4. Install dependencies: `npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
+Run the back end with : `node index.ts`
+Run the application with: `npm start`
+Available at `http://localhost:3000`
 
-### `npm run eject`
+## Output-Results
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Single Product Output
+![singleProductPage](public/assets/Output/singleProduct.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Cart Output
+![singleProductPage](public/assets/Output/cartOutput.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Cart after placing Output
+![singleProductPage](public/assets/Output/cartAfterPlacing.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Pop up Output
+![singleProductPage](public/assets/Output/popUp.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Thank you!
+
+Enjoy your shopping experience with Hanami Clothing Store!
+

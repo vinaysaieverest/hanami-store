@@ -1,19 +1,41 @@
 export type Ttypecard = {
+
+  id:number,
   image: string;
   name: string;
   price: string;
   rating: string;
-  Bname: string;
-  discount:string;
+  discount:number;
   isavailable:boolean;
   isnew:boolean;
-  updateCart:Function;
+  isAddedToCart:boolean;
+  isAddedToWishList:boolean;
+  isInOffers:boolean;
+  updateCart?:Function;
+  handleAddToCart: Function
+  handleAddToWishList:Function
+  handleProduct?:Function
 };
+export type Ttypecard1 = {
+  id:number,
+  image: string;
+  name: string;
+  price: string;
+  rating: string;
+  discount:number;
+  isavailable:boolean;
+  isnew:boolean;
+  isAddedToCart:boolean;
+  isAddedToWishList:boolean;
+  isInOffers:boolean;
+};
+
 export type Htype = {
   logo: string;
-  search: string;
+  // search: string;
   login: string;
-  noOfCartItem:number
+  noOfCartItem:number;
+  setSearch:Function
   
 };
 export type Stypecard = {
