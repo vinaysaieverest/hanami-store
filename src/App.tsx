@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import React from "react";
 import "./App.css";
-import { Button } from "./buttons";
-import { Card} from "./card";
+import { Button } from "./components/NavBar";
+import { Card} from "./components/Cards";
 import {Ttypecard} from './types'
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { dataContext } from "./Context/GlobalContext";
 
@@ -13,34 +13,15 @@ function App() {
   // const [Data, setData] = useState(data);
   const {Data,setData} = useContext(dataContext);
   const {noOfCartItem, setNoOfCartItem} = useContext(dataContext);
-
-
-  
-
   const {search,setSearch} = useContext(dataContext)
 
-  const updateCart = () => {
-    setNoOfCartItem(noOfCartItem + 1);
-    if (noOfCartItem > 1) {
-      return 1;
-    }
-  };
-  const handleAddToCart = (id: number) => {
-    console.log(id);
-    setData((Data1: any[]) =>
-      Data1.map((item) =>
-        item.id === id ? { ...item, isAddedToCart: true } : item
-      )
-    );
-    console.log(Data);
-    updateCart();
-  };
-  
+
+
   const handleAddToWishList = (id: number) => {
     console.log(id);
     setData((Data:any) =>
-      Data.map((item: { id: number; }) =>
-        item.id === id ? { ...item, isAddedToWishList: true } : item
+      Data.map((item: { id: number; isAddedToWishList:boolean }) =>
+        item.id === id ? { ...item, isAddedToWishList: !item.isAddedToWishList } : item
       )
     );
     console.log(Data);
@@ -92,13 +73,11 @@ function App() {
                     isnew={ele.isnew}
                     discount={ele.discount}
                     isavailable={ele.isavailable}
-                    isAddedToCart={ele.isAddedToCart}
+                    isAddedToCartFromHome={ele.isAddedToCartFromHome}
                     isAddedToWishList={ele.isAddedToWishList}
                     isInOffers={ele.isInOffers}
-                    updateCart={updateCart}
-                    handleAddToCart={handleAddToCart}
-                    handleAddToWishList={handleAddToWishList}
-                    
+                    handleAddToWishList={handleAddToWishList} 
+                    isAddedToCartFromProduct={ele.isAddedToCartFromProduct}                  
                   />
                 ))}
               </div>
