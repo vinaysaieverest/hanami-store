@@ -53,6 +53,7 @@ body{
 .card:hover {
   cursor: pointer;
   transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 .newarrivalimg {
   position: absolute;
@@ -550,45 +551,6 @@ z-index: 1000;
   font-size: 18px;
   color: #666;
 }
-
-/* Cart summary
-.cart-summary {
-  flex: 1;
-  padding: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cart-summary h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #333;
-}
-
-.cart-summary p {
-  margin: 10px 0;
-  font-size: 16px;
-  color: #333;
-}
-
-.order-now {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.order-now:hover {
-  background-color: #0056b3;
-} */
-
 .back-button {
   margin-bottom: 20px;
   padding: 10px 20px;
@@ -818,13 +780,13 @@ p {
 }
 
 .selected1{
-  background-color: #007bff; /* Change background color on click */
+  background-color: #444a1d; 
   color: #fff;
 }
-hr{
+/* hr{
   width: 100%;
   size: 2;
-}
+} */
 
 
 .cart-summary {
@@ -885,3 +847,34 @@ hr{
 .order-now:active {
   background-color: #003f7f; /* Even darker blue when clicked */
 }
+.logo-image{
+  height: 100px;
+  width: 150%;
+
+}
+.dressImage.disabled{
+  opacity: 0.5;
+}
+.size {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  padding: 8px 12px;
+  
+  border-radius: 4px;
+  
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.product-not-found {
+  font-size: 1.5rem; /* Adjust the font size */
+  color: #ff4d4d; /* A red color to indicate error */
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Add some margin on top */
+  background-color: #ffe6e6; /* Light red background */
+  padding: 15px; /* Padding around the text */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
