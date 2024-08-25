@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
-import { useNavigate, useNavigation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { dataContext } from "../Context/GlobalContext";
-import { Button } from "../buttons";
-import likedImage from "../assets/heart (1).png";
-import unlikedImage from "../assets/heart.png";
+import { Button } from "./NavBar";
 import { toast } from "react-toastify";
+
 type Product = {
   id: number;
   name: string;
@@ -14,32 +13,29 @@ type Product = {
   discount: number;
   isnew: boolean;
   isavailable: boolean;
-  isAddedToCart: boolean;
+  isAddedToCartFromHome: boolean;
   isAddedToWishList: boolean;
+  isAddedToCartFromProduct:boolean
 };
+interface CartItem extends Product {
+  quantity: number;
+}
 interface ProductsProps {
   Data1: Product[];
 }
+
 export const Products = ({ Data1 }: ProductsProps) => {
   const { Data, setData } = useContext(dataContext);
   const navigate = useNavigate();
   const { noOfCartItem, setNoOfCartItem } = useContext(dataContext);
-  const { search, setSearch } = useContext(dataContext);
+  const {  setSearch } = useContext(dataContext);
   const [isLiked, setisLiked] = useState(false);
+  const [cart, setCart] = useState([]);
   const { size, setSize } = useContext(dataContext);
-
-  const handleAddToWishList1 = (id: number) => {
-    console.log(id);
-    setData((Data: any) =>
-      Data.map((item: { id: number }) =>
-        item.id === id ? { ...item, isAddedToWishList: true } : item
-      )
-    );
-    console.log(Data);
-  };
+  const {isAdded,setisAdded} = useContext(dataContext)
   const SelectSize = (selectedSize: string) => {
-    setSize(selectedSize); // Set the selected size
-    console.log(selectedSize); // Log the selected size
+    setSize(selectedSize);
+    console.log(selectedSize); 
   };
   const liked = () => {
     if (isLiked) {
@@ -49,10 +45,33 @@ export const Products = ({ Data1 }: ProductsProps) => {
       setisLiked(true);
       toast.success("Added to Wishlist!");
     }
-    temp();
-    handleAddToWishList1(a.id);
+    
   };
 
+  const handleClick1 = () => {
+    if (!a) return;
+  
+    if (!a.isAddedToCartProduct) {
+      handleAddToCart(id1);
+      updateCart();
+    
+    }
+    console.log(Data)
+  };
+  
+  const handleAddToCart = (id: number) => {
+    setData((Data1: Product[]) =>
+      Data1.map((item) =>
+        item.id === id ? { ...item, isAddedToCartFromProduct: true } : item
+      )
+    );
+  };
+  
+  const updateCart = () => {
+    setNoOfCartItem(noOfCartItem + 1);
+  };
+  
+  
   const { id } = useParams();
   if (!id) {
     return <></>;
@@ -60,31 +79,12 @@ export const Products = ({ Data1 }: ProductsProps) => {
   const id1 = parseInt(id);
   const a = Data.find((item: { id: number }) => item.id === id1);
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
-  const check = () => {};
+  if (!a) {
+    return <p className="product-not-found">Product not found. Please try again later.</p>;
+  }
 
   const backToHome = () => {
     navigate("/");
-  };
-  const handleAddToCart = (id: number) => {
-    console.log(id);
-    setData((Data1: any[]) =>
-      Data1.map((item) =>
-        item.id === id ? { ...item, isAddedToCart: true } : item
-      )
-    );
-  };
-  const updateCart = () => {
-    setNoOfCartItem(noOfCartItem + 1);
-    if (noOfCartItem > 1) {
-      return 1;
-    }
-  };
-  const singleProductAddToCart = () => {
-    handleAddToCart(id1);
-    updateCart();
-  };
-  const temp = () => {
-    console.log(a);
   };
   const addedItems = () => {
     navigate(`/cart`);
@@ -122,7 +122,7 @@ export const Products = ({ Data1 }: ProductsProps) => {
               </button>
             ))}
           </div>
-          {a?.isAddedToCart ? (
+          {a?.isAddedToCartFromProduct ? (
             <>
               <button className="button_add_to_cart" onClick={addedItems}>
                 Go to Cart
@@ -131,12 +131,12 @@ export const Products = ({ Data1 }: ProductsProps) => {
           ) : (
             <button
               className="button_add_to_cart"
-              onClick={singleProductAddToCart}
+              onClick={handleClick1}
+              disabled={!a.isavailable}
             >
-              Add to Cart
+              Add to cart
             </button>
           )}
-
           <button
             className="buy-now-single-product"
             disabled={a?.isavailable ? false : true}
@@ -146,7 +146,7 @@ export const Products = ({ Data1 }: ProductsProps) => {
           <button onClick={liked} className="single-like-button">
             <img
               className="heartImage"
-              src={a?.isAddedToWishList ? likedImage : unlikedImage}
+              src={a?.isAddedToWishList ? 'likedImage.png' : 'unLikedImage.png'}
             />
           </button>
 
@@ -158,3 +158,5 @@ export const Products = ({ Data1 }: ProductsProps) => {
     </>
   );
 };
+
+
